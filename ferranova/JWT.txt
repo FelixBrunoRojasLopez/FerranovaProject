@@ -1,0 +1,30 @@
+librerias necesarias para JWT
+=============================
+* microsfot.aspnetcore.authentification.jwbbearer ==> API
+* system.identitymodel.tokens.jwt                 ==> APi
+=================================================
+detrno de nuestro archivo de configuracion "program.cs"
+vamos a configurar nuestra seccion de seguridad
+//JWT IMPLEMENTACION
+builder.Services
+    .AddHttpContextAccessor()
+    .AddAuthorization()
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ClockSkew = TimeSpan.Zero,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+
+Y AL FINAL 
+    app.UseAuthentication();

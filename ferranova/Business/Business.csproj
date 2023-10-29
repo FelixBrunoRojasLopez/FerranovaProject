@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BDFerranova\BDFerranova.csproj" />
+    <ProjectReference Include="..\CommonModel\CommonModel.csproj" />
+    <ProjectReference Include="..\IBusiness\IBusiness.csproj" />
+    <ProjectReference Include="..\IRepository\IRepository.csproj" />
+    <ProjectReference Include="..\IService\IService.csproj" />
+    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <ProjectReference Include="..\RequestResponseModel\RequestResponseModel.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
+    <ProjectReference Include="..\UtilAutoMapper\UtilAutoMapper.csproj" />
+    <ProjectReference Include="..\UtilConstant\UtilConstant.csproj" />
+    <ProjectReference Include="..\UtilExcel\UtilExcel.csproj" />
+    <ProjectReference Include="..\UtilPdf\UtilPdf.csproj" />
+    <ProjectReference Include="..\UtilSecuriry\UtilSecuriry.csproj" />
+  </ItemGroup>
+
+</Project>
