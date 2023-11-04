@@ -83,5 +83,13 @@ namespace Business
             int cantidad = _MetodoPagoRepository.DeleteMultipleItems(MetodoPagos);
             return cantidad;
         }
+
+        public GenericFilterResponse<MetodoPagoResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<MetodoPagoResponse> result = _mapper.Map<GenericFilterResponse<MetodoPagoResponse>>(_MetodoPagoRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }

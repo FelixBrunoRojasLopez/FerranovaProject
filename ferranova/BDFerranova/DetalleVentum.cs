@@ -25,6 +25,12 @@ public partial class DetalleVentum
     [Column("total", TypeName = "money")]
     public decimal? Total { get; set; }
 
+    [Column("precio", TypeName = "money")]
+    public decimal? Precio { get; set; }
+
+    [Column("cantidad")]
+    public int? Cantidad { get; set; }
+
     [ForeignKey("IdProducto")]
     [InverseProperty("DetalleVenta")]
     public virtual Producto IdProductoNavigation { get; set; } = null!;

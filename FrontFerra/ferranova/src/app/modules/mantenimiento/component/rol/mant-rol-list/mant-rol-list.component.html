@@ -1,0 +1,56 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE ROL</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Descripcion</th>
+                        <th>Funcion</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="crearRol(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rol of rol">
+                        <td> {{rol.idRol}} </td>
+                        <td> {{rol.codigo}} </td>
+                        <td> {{rol.descripcion}} </td>
+                        <td> {{rol.funcion}} </td>
+                        <td> {{rol.EstadoDescripcion}} 
+                            <div class="form-check form-switch" >{{rol.idEstado?'Activo':'Inactivo'}}
+                               <input type="checkbox" class="form-check-input" role="switch" [checked]="rol.idEstado"> 
+                            </div>
+                        </td>
+                        <td>
+                            <button (click)="editarRol(modalEdit, rol)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(rol.idRol)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+   <app-mant-rol-register
+    [title]="titleModal"
+    [rol]="rolSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-rol-register>
+  
+  </ng-template>

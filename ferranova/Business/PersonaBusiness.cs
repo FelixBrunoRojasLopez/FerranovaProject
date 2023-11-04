@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
-    public class PersonaBusiness :IPersonaBusiness
+    public class PersonaBusiness : IPersonaBusiness
     { 
      //Inyeccion de Dependecias
     #region DECLARACION DE VARIABLE Y CONSTRUCTOR
@@ -21,7 +21,7 @@ namespace Business
     public PersonaBusiness(IMapper mapper)
     {
         _mapper = mapper;
-        _PersonaRepository = new PersonaRepository();
+        _PersonaRepository = new PersonaRepository(mapper);
     }
     #endregion DECLARACION DE VARIABLE Y CONSTRUCTOR
     public List<PersonaResponse> GetAll()
@@ -83,6 +83,19 @@ namespace Business
         int cantidad = _PersonaRepository.DeleteMultipleItems(Personas);
         return cantidad;
     }
-}
+
+        public TipoDocumentoFilterResponse ObtenerPorFiltro(TipoDocumentoFilterRequest request)
+        {
+            return _PersonaRepository.ObtenerPorFiltro(request); 
+        }
+
+        public GenericFilterResponse<PersonaResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<PersonaResponse> result = _mapper.Map<GenericFilterResponse<PersonaResponse>>(_PersonaRepository.GetByFilter(request));
+
+            return result;
+
+        }
+    }
 }
    

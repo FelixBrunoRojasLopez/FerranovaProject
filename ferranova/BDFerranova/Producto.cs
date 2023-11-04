@@ -29,6 +29,12 @@ public partial class Producto
     [Column("imagen", TypeName = "image")]
     public byte[]? Imagen { get; set; }
 
+    [Column("fechaRegistro")]
+    public DateTime? FechaRegistro { get; set; }
+
+    [Column("idEstado")]
+    public bool? IdEstado { get; set; }
+
     [InverseProperty("IdProductoNavigation")]
     public virtual ICollection<DetallePedido> DetallePedidos { get; set; } = new List<DetallePedido>();
 
@@ -38,6 +44,10 @@ public partial class Producto
     [ForeignKey("IdDetalleProducto")]
     [InverseProperty("Productos")]
     public virtual DetalleProducto IdDetalleProductoNavigation { get; set; } = null!;
+
+    [ForeignKey("IdEstado")]
+    [InverseProperty("Productos")]
+    public virtual Estado? IdEstadoNavigation { get; set; }
 
     [InverseProperty("IdProductoNavigation")]
     public virtual ICollection<ProveedorProducto> ProveedorProductos { get; set; } = new List<ProveedorProducto>();

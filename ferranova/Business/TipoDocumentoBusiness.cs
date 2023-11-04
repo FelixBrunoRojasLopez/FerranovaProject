@@ -83,5 +83,13 @@ namespace Business
             int cantidad = _TipoDocumentoRepository.DeleteMultipleItems(TipoDocumentos);
             return cantidad;
         }
+
+        public GenericFilterResponse<TipoDocumentoResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<TipoDocumentoResponse> result = _mapper.Map<GenericFilterResponse<TipoDocumentoResponse>>(_TipoDocumentoRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }

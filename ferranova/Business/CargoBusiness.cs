@@ -81,6 +81,12 @@ namespace Business
             return cantidad;
         }
 
-        
+        public GenericFilterResponse<CargoResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<CargoResponse> result = _mapper.Map<GenericFilterResponse<CargoResponse>>(_cargoRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }

@@ -30,6 +30,9 @@ public partial class Estado
     public virtual ICollection<MenuRol> MenuRols { get; set; } = new List<MenuRol>();
 
     [InverseProperty("IdEstadoNavigation")]
+    public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
+
+    [InverseProperty("IdEstadoNavigation")]
     public virtual ICollection<Rol> Rols { get; set; } = new List<Rol>();
 
     [InverseProperty("IdEstadoNavigation")]

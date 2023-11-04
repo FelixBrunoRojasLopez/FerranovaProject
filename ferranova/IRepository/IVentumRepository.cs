@@ -10,5 +10,6 @@ namespace IRepository
     public interface IVentumRepository : ICRUDRepository<Ventum>
     {
         List<Ventum> InsertMultiple(List<Ventum> ventums);
+        //Task<Ventum> Registrar(Ventum ventum);
     }
 }

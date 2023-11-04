@@ -25,5 +25,13 @@ namespace RequestResponseModel
         [StringLength(20)]
         public string? NroDocumento { get; set; }
         public string? NombreCompleto { get; set; }
+
+        public string NroDocNombre
+        {
+            get
+            {
+                return string.Concat(NroDocumento, " - ", NombreCompleto);
+            }
+        }
     }
 }

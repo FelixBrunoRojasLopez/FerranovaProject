@@ -62,8 +62,8 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Documentación de los servicios para el sistema de tramite documentario",
         Contact = new OpenApiContact
         {
-            Name = "Franklin Huamán",
-            Email = "fl.huaman.021@gmail.com",
+            Name = "Mauricio Contreras",
+            Email = "i2026200@continental.edu.pe",
             Url = new Uri("https://www.linkedin.com/in/franklinleonciofuamanaraujo/"),
         },
     }

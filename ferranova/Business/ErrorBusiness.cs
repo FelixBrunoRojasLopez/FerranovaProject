@@ -90,6 +90,14 @@ namespace Business
             return cantidad;
         }
 
+        public GenericFilterResponse<ErrorResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<ErrorResponse> result = _mapper.Map<GenericFilterResponse<ErrorResponse>>(_ErrorRepository.GetByFilter(request));
+
+            return result;
+
+        }
+
         #endregion END CRUD METHODS
-       }
+    }
 }

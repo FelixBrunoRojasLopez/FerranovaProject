@@ -83,5 +83,13 @@ namespace Business
             int cantidad = _DetalleVentumRepository.DeleteMultipleItems(DetalleVentums);
             return cantidad;
         }
+
+        public GenericFilterResponse<DetalleVentumResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<DetalleVentumResponse> result = _mapper.Map<GenericFilterResponse<DetalleVentumResponse>>(_DetalleVentumRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }

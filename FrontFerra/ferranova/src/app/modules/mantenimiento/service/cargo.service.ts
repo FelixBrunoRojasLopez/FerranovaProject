@@ -5,11 +5,15 @@ import { urlConstants } from '@constants/url.constants';
 import { CargoResponse } from '@models/cargo-response.model';
 import { CargoRequest } from '@modules/auth/models/cargo-request.model';
 import { CrudService } from '@modules/shared/services/crud.service';
+import { GenericFilterRequest } from '@modules/auth/models/generic-filter-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CargoService extends CrudService<CargoRequest,CargoResponse>{
+  genericFilter(request: GenericFilterRequest) {
+    throw new Error('Method not implemented.');
+  }
   constructor(
     protected http: HttpClient,
   ) { 

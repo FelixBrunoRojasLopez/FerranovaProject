@@ -14,5 +14,12 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
+
+        public Vcliente ObtenerVistaCliente(string nombre)
+        {
+            Vcliente VCliente = db.Vclientes.Where(x => x.Nombre.ToLower() == nombre.ToLower()).FirstOrDefault();
+            return VCliente;
+
+        }
     }
 }

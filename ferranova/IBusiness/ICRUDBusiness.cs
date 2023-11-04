@@ -22,6 +22,7 @@ namespace IBusiness
         int DeleteMultipleItems(List<T> lista);
         List<Y> InsertMultiple(List<T> lista);
         List<Y> UpdateMultiple(List<T> lista);
+        GenericFilterResponse<Y> GetByFilter(GenericFilterRequest request);
     }
 
 }

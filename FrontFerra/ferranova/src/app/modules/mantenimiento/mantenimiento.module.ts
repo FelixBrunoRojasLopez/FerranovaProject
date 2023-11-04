@@ -9,6 +9,8 @@ import { MantPersonaListComponent } from './component/persona/mant-persona-list/
 import { MantPersonaRegisterComponent } from './component/persona/mant-persona-register/mant-persona-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@modules/shared/shared.module';
+import { MantRolRegisterComponent } from './component/rol/mant-rol-register/mant-rol-register.component';
+import { MantRolListComponent } from './component/rol/mant-rol-list/mant-rol-list.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { SharedModule } from '@modules/shared/shared.module';
     MantCargoListComponent,
     MantCargoRegisterComponent,
     MantPersonaListComponent,
-    MantPersonaRegisterComponent
+    MantPersonaRegisterComponent,
+    MantRolRegisterComponent,
+    MantRolListComponent
   ],
   imports: [
     CommonModule,

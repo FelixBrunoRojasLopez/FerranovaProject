@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BDFerranova;
+using IBusiness;
 using IRepository;
 using Repository;
 using RequestResponseModel;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Business
 {
-    public class ProveedorBusiness
+    public class ProveedorBusiness : IProveedorBusiness
     {
         //Inyeccion de Dependecias
         #region DECLARACION DE VARIABLE Y CONSTRUCTOR
@@ -81,6 +82,14 @@ namespace Business
             List<Proveedor> Proveedors = _mapper.Map<List<Proveedor>>(lista);
             int cantidad = _ProveedorRepository.DeleteMultipleItems(Proveedors);
             return cantidad;
+        }
+
+        public GenericFilterResponse<ProveedorResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<ProveedorResponse> result = _mapper.Map<GenericFilterResponse<ProveedorResponse>>(_ProveedorRepository.GetByFilter(request));
+
+            return result;
+
         }
     }
 }

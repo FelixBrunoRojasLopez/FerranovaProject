@@ -37,6 +37,8 @@ public partial class _dbFerranovaContext : DbContext
 
     public virtual DbSet<MetodoPago> MetodoPagos { get; set; }
 
+    public virtual DbSet<NumeroDoc> NumeroDocs { get; set; }
+
     public virtual DbSet<Pedido> Pedidos { get; set; }
 
     public virtual DbSet<Persona> Personas { get; set; }
@@ -200,6 +202,13 @@ public partial class _dbFerranovaContext : DbContext
             entity.HasKey(e => e.IdMetodopago).HasName("XPKmetodoPago");
         });
 
+        modelBuilder.Entity<NumeroDoc>(entity =>
+        {
+            entity.HasKey(e => e.IdNumDoc).HasName("PK__NumeroDo__885994790D8F3D61");
+
+            entity.Property(e => e.FechaRegistro).HasDefaultValueSql("(getdate())");
+        });
+
         modelBuilder.Entity<Pedido>(entity =>
         {
             entity.HasKey(e => e.IdPedidos).HasName("XPKpedidos");
@@ -222,9 +231,13 @@ public partial class _dbFerranovaContext : DbContext
         {
             entity.HasKey(e => e.IdProducto).HasName("XPKproducto");
 
+            entity.Property(e => e.FechaRegistro).HasDefaultValueSql("(getdate())");
+
             entity.HasOne(d => d.IdDetalleProductoNavigation).WithMany(p => p.Productos)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("R_15");
+
+            entity.HasOne(d => d.IdEstadoNavigation).WithMany(p => p.Productos).HasConstraintName("FK__producto__idEsta__4E53A1AA");
         });
 
         modelBuilder.Entity<Proveedor>(entity =>

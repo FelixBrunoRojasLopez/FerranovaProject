@@ -1,3 +1,5 @@
+import { GenericFilterResponse } from "@models/generic-filter-response.model";
+import { GenericFilterRequest } from "@modules/auth/models/generic-filter-request.model";
 import { Observable } from "rxjs";
 
 
@@ -7,7 +9,7 @@ export interface CrudInterface<T,Y> {
     create(request:T): Observable<Y>;
     update(request:T): Observable<Y>;
     delete(id: number): Observable<number>;
-    //getByFilter(request: GenericFilterRequest): Observable<GenericFilterResponse<T>>;
+    getByFilter(request: GenericFilterRequest): Observable<GenericFilterResponse<T>>;
     //createMultiple(request: T[]): Observable<T[]>;
     //updateMultiple(request: T[]): Observable<T[]>;
 }

@@ -103,6 +103,14 @@ namespace Business
             Vusuario Usuario = _UsuarioRepository.ObtenerVistaUsername(username);
             return Usuario;
         }
+
+        public GenericFilterResponse<UsuarioResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<UsuarioResponse> result = _mapper.Map<GenericFilterResponse<UsuarioResponse>>(_UsuarioRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }
 

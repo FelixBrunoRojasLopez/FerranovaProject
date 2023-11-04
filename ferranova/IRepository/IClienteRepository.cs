@@ -10,5 +10,6 @@ namespace IRepository
     public interface IClienteRepository : ICRUDRepository<Cliente>
     {
         List<Cliente> InsertMultiple(List<Cliente> clientes);
+        Vcliente ObtenerVistaCliente(string nombre);
     }
 }

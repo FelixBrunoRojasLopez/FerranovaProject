@@ -1,7 +1,9 @@
 ﻿using BDFerranova;
+using RequestResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -65,6 +67,9 @@ namespace IRepository
         /// <param name="lista"> List<paramref name="lista"/> </param>
         /// <returns>List<paramref name="lista"/></returns>
         List<T> UpdateMultiple(List<T> lista);
+
+        //List <T> Consultar(Expression<Func<T, bool>> filtro = null);
+        GenericFilterResponse<T> GetByFilter(GenericFilterRequest request);
     }
 
 }

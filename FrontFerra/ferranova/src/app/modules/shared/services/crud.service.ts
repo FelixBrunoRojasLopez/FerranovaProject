@@ -2,6 +2,8 @@ import { Inject, Injectable } from '@angular/core';
 import { CrudInterface } from '../interfaces/crud-interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { GenericFilterRequest } from '@modules/auth/models/generic-filter-request.model';
+import { GenericFilterResponse } from '@models/generic-filter-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +19,9 @@ export class CrudService<T,Y> implements CrudInterface<T,Y>{
     protected _http: HttpClient,
     @Inject('url_service') public url_service: string
   ) { }
+  getByFilter(request: GenericFilterRequest): Observable<GenericFilterResponse<T>> {
+    throw new Error('Method not implemented.');
+  }
 
   /**TODO: Obtiene la lista de toda la tabla */
   getAll(): Observable<Y[]> {
@@ -36,5 +41,12 @@ export class CrudService<T,Y> implements CrudInterface<T,Y>{
   delete(id: number): Observable<number> {
     return this._http.delete<number>(`${this.url_service}${id}`);
   }
+  /**TODO: FILTRO GENERICO */
+  genericFilter(request: GenericFilterRequest): Observable<GenericFilterResponse<Y>> {
+    return this._http.post<GenericFilterResponse<Y>>(`${this.url_service}filter`, request);
+  }
+ 
+
+
 
 }

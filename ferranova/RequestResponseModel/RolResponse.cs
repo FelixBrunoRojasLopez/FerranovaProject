@@ -11,11 +11,18 @@ namespace RequestResponseModel
     {
         public int IdRol { get; set; }
         [StringLength(7)]
-        public string? Codigo { get; set; }
+        public string? Codigo { get; set; } = "";
         [StringLength(255)]
-        public string? Descripcion { get; set; }
+        public string? Descripcion { get; set; } = "";
         [StringLength(100)]
-        public string? Funcion { get; set; }
-        public bool IdEstado { get; set; }
+        public string? Funcion { get; set; } = "";
+        public bool IdEstado { get; set; } = false;
+        public string EstadoDescripcion
+        {
+            get
+            {
+                return IdEstado ? "Activo" : "Inactivo";
+            }
+        }
     }
 }

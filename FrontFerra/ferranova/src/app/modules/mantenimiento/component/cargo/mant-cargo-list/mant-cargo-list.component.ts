@@ -4,6 +4,9 @@ import { CargoResponse } from '@models/cargo-response.model';
 import { CargoService } from '@modules/mantenimiento/service/cargo.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AccionMantConst } from '@constants/general.constants';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { GenericFilterRequest } from '@modules/auth/models/generic-filter-request.model';
+import { GenericFilterResponse } from '@models/generic-filter-response.model';
 
 
 
@@ -18,14 +21,28 @@ export class MantCargoListComponent implements OnInit {
   cargoSelected : CargoResponse = new CargoResponse();
   titleModal    : string = "";
   accionModal   : number = 0;
+  myFormFilter  : FormGroup;
+  totalItems    : number = 0;
+  itemsPerPage  : number = 3;
+  request       : GenericFilterRequest = new GenericFilterRequest();
+ 
+
 
 
 
   constructor(
     private _route       : Router,
+    private fb           : FormBuilder,
     private modalService : BsModalService,
     private _cargoService: CargoService,
-  ){}
+  ){
+    this.myFormFilter = this.fb.group({
+      codigo: ["", []],
+      nombre: ["", []],
+      idEstado: ["", []],
+    });
+
+  }
 
 
 
@@ -87,5 +104,37 @@ eliminarRegistro(id : number){
     }
 
 }
+// filtrar() {
+//   let valueForm = this.myFormFilter.getRawValue();
+//   this.request.filtros.push({ name: "codigo", value: valueForm.codigo });
+//   this.request.filtros.push({ name: "nombre", value: valueForm.nombre });
+//   this.request.filtros.push({ name: "idEstado", value: valueForm.idEstado });
+//   this._cargoService.genericFilter(this.request).subscribe({
+//     next: (data: GenericFilterResponse<CargoResponse>) => {
+//       console.log(data);
+//       this.cargos = data.lista;
+//       this.totalItems = data.totalRegistros;
+//     },
+//     error: () => {
+//       console.log("error");
+//     },
+//     complete: () => {
+//       console.log("completo");
+//     },
+//   });
+// }
+
+// changePage(event: PageChangedEvent) {
+//   this.request.numeroPagina = event.page;
+//   this.filtrar();
+// }
+
+
+// changeItemsPerPage() {
+//   this.request.cantidad = this.itemsPerPage;
+//   this.filtrar();
+// }
+
+
 
 }

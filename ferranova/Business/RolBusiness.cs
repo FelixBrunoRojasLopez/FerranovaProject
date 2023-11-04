@@ -83,5 +83,13 @@ namespace Business
             int cantidad = _RolRepository.DeleteMultipleItems(Rols);
             return cantidad;
         }
+
+        public GenericFilterResponse<RolResponse> GetByFilter(GenericFilterRequest request)
+        {
+            GenericFilterResponse<RolResponse> result = _mapper.Map<GenericFilterResponse<RolResponse>>(_RolRepository.GetByFilter(request));
+
+            return result;
+
+        }
     }
 }

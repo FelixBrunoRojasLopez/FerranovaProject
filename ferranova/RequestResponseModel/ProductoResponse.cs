@@ -11,11 +11,13 @@ namespace RequestResponseModel
     public class ProductoResponse
     {
         public int IdProducto { get; set; }
-        public int IdDetalleProducto { get; set; }
-        public short? Stock { get; set; }
-        public decimal? Precio { get; set; }
-        [StringLength(50)]
         public string? Nombre { get; set; }
-        public byte[]? Imagen { get; set; }
+        public int IdDetalleProducto { get; set; }
+        public string? DescripcionDetalleProducto { get; set; }
+        public int? Stock { get; set; }
+        public decimal? Precio { get; set; }
+        public byte[]? Imagen { get; set; } = null;
+        public bool? IdEstado { get; set; }
+        public DateTime? FechaRegistro { get; set; }
     }
 }
