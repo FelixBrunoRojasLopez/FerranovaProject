@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginResponse } from '@models/login/login-response';
 import { LoginRequest } from '@modules/auth/models/Login-Request';
-import { UsuarioComponent } from '@modules/mantenimiento/component/usuario/usuario.component';
 import { CrudService } from '@modules/shared/services/crud.service';
 
 @Injectable({

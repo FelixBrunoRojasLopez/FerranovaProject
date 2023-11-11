@@ -4,9 +4,9 @@ export class PersonaRequest {
     apellido        : string = "";
     direccion       : string = "";
     telefono        : string = "";
-    fechaNacimiento : string = "";
     correo          : string = "";
     idTipoDocumento : number = 0;
     nroDocumento    : string = "";
     nombreCompleto  : string = "";
+    //fechaNacimiento : string = "";
 }

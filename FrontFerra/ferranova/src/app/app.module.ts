@@ -8,7 +8,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AuthInterceptor } from '@services/auth.interceptor';
-import { DashBoardComponent } from './modules/mantenimiento/component/dash-board/dash-board.component';
 import { SharedModule } from '@modules/shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

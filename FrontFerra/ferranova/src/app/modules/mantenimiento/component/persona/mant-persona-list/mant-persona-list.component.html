@@ -1,7 +1,59 @@
- <!-- Start WorkSpace -->
- <div class="container-fluid px-4">
-    <h1 class="mt-4">Mantenimiento de Persona</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Lista de Personas</li>
-    </ol>
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE PERSONA</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>nroDocumento</th>
+                        <th>
+                            <button (click)="crearPersona(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let personas of persona">
+                        <td> {{personas.idPersona}} </td>
+                        <td> {{personas.nombre}} </td>
+                        <td> {{personas.apellido}} </td>
+                        <td> {{personas.direccion}} </td>
+                        <td> {{personas.telefono}} </td>
+                        <td> {{personas.correo}} </td>
+                        <td> {{personas.nroDocumento}} </td>
+                        <td>
+                            <button (click)="editarPersona(modalEdit, personas)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(personas.idPersona)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(personas.idPersona)" class="btn btn-warning btn-sm">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 </div>
+<ng-template #modalEdit>
+   <app-mant-persona-register
+    [title]="titleModal"
+    [persona]="personaSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+    ></app-mant-persona-register>
+  
+  </ng-template>

@@ -10,11 +10,16 @@ import { MantPersonaRegisterComponent } from './component/persona/mant-persona-r
 import { SharedModule } from '@modules/shared/shared.module';
 import { MantRolRegisterComponent } from './component/rol/mant-rol-register/mant-rol-register.component';
 import { MantRolListComponent } from './component/rol/mant-rol-list/mant-rol-list.component';
-import { UsuarioComponent } from './component/usuario/usuario.component';
 import { VentaRegisterComponent } from './component/venta/venta-register/venta-register.component';
 import { ReporteRegisterComponent } from './component/reporte/reporte-register/reporte-register.component';
 import { HistorialVentaRegisterComponent } from './component/historial-venta/historial-venta-register/historial-venta-register.component';
 import { DashBoardRegisterComponent } from './component/dash-board/dash-board-register/dash-board-register.component';
+import { DashBoardListComponent } from './component/dash-board/dash-board-list/dash-board-list.component';
+import { HistorialVentaListComponent } from './component/historial-venta/historial-venta-list/historial-venta-list.component';
+import { ProductoRegisterComponent } from './component/producto/producto-register/producto-register.component';
+import { ProductoListComponent } from './component/producto/producto-list/producto-list.component';
+import { ReporteListComponent } from './component/reporte/reporte-list/reporte-list.component';
+import { VentaListComponent } from './component/venta/venta-list/venta-list.component';
 
 
 
@@ -26,11 +31,16 @@ import { DashBoardRegisterComponent } from './component/dash-board/dash-board-re
     MantPersonaRegisterComponent,
     MantRolRegisterComponent,
     MantRolListComponent,
-    UsuarioComponent,
     VentaRegisterComponent,
     ReporteRegisterComponent,
     HistorialVentaRegisterComponent,
     DashBoardRegisterComponent,
+    DashBoardListComponent,
+    HistorialVentaListComponent,
+    ProductoRegisterComponent,
+    ProductoListComponent,
+    ReporteListComponent,
+    VentaListComponent,
 
   ],
   imports: [
