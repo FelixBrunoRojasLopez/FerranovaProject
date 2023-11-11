@@ -1,4 +1,5 @@
 ﻿using BDFerranova;
+using RequestResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace IRepository
 {
     public interface IMenuRolRepository : ICRUDRepository<MenuRol>
     {
+        IQueryable<MenuRolResponse> Consultar();
     }
 }

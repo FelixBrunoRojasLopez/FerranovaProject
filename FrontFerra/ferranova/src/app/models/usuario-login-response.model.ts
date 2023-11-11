@@ -7,4 +7,5 @@ export class UsuarioLoginResponse {
     correo                  : string ="";
     celularIdentificador    : string ="";
     idEstado                : boolean = false;
+    idRol                   : number = 0;
 } 

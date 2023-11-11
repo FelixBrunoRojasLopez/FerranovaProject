@@ -9,16 +9,22 @@ import { TemplateComponent } from './component/template/template.component';
 
 
 
+
+
+
+
 @NgModule({
   declarations: [
     TemplateComponent,
     TemplateHeaderComponent,
     TemplateFooterComponent,
-    TemplateSidebarComponent
+    TemplateSidebarComponent,
+
   ],
   imports: [
     CommonModule,
-    TemplateRoutingModule
+    TemplateRoutingModule,
+    
   ]
 })
 export class TemplateModule { }

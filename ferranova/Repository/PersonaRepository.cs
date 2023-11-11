@@ -59,5 +59,10 @@ namespace Repository
             res.Lista = _mapper.Map<List<PersonaResponse>>(lista);
             return res;
         }
+
+        public GenericFilterResponse<Persona> GetByFilter(GenericFilterRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

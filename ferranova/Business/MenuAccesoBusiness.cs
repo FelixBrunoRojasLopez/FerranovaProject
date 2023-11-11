@@ -18,10 +18,17 @@ namespace Business
         #region DECLARACIÓN DE VARIABLES Y CONSTRUCTOR / DISPOSE
         private readonly IMenuAccesoRepository _MenuAccesoRepository;
         private readonly IMapper _mapper;
+        private readonly IProductoRepository _productoRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IMenuRolRepository _menuRolRepository;
+
         public MenuAccesoBusiness(IMapper mapper)
         {
             _mapper = mapper;
             _MenuAccesoRepository = new MenuAccesoRepository();
+            _productoRepository = new ProductoRepository();
+            _usuarioRepository = new UsuarioRepository();
+            _menuRolRepository = new MenuRolRepository();
         }
 
         public void Dispose()
@@ -98,6 +105,16 @@ namespace Business
 
         }
 
+        public TipoDocumentoFilterResponse ObtenerPorFiltro(TipoDocumentoFilterRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion END CRUD METHODS
+        //public List<MenuAccesoResponse> Lista(int IdUsuario)
+        //{
+        //    IQueryable<UsuarioAcceso> tbUsuario = _usuarioRepository.Consultar(u => u.idUsuario == IdUsuario);
+        //    IQueryable<MenuRolResponse> menuRols = _menuRolRepository.Consultar();
+        //}
     }
 }

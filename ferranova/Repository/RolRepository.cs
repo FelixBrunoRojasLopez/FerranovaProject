@@ -1,5 +1,6 @@
 ﻿using BDFerranova;
 using IRepository;
+using RequestResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace Repository
 {
     public class RolRepository : CRUDRepository<Rol>, IRolRepository
     {
+        public GenericFilterResponse<Rol> GetByFilter(GenericFilterRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public Rol GetByID(int id)
         {
             throw new NotImplementedException();

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace IBusiness
 {
-    public interface IMenuAccesoBusiness:ICRUDBusiness<MenuAccesoRequest, MenuAccesoResponse>
+    public interface IMenuAccesoBusiness : ICRUDBusiness<MenuAccesoRequest, MenuAccesoResponse>
     {
+        TipoDocumentoFilterResponse ObtenerPorFiltro(TipoDocumentoFilterRequest request);
     }
 }

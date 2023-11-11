@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/material-moment-adapter": "^16.2.11",
+    "chart.js": "^4.4.0",
+    "moment": "^2.29.4"
+  }
+}

@@ -1,7 +1,7 @@
 <div class="modal-header">
     <h4 class="modal-title pull-left"> {{title}} </h4>
     <!-- (click)="modalRef?.hide()" -->
-    <button type="button" class="btn-close close pull-right" aria-label="Close" >
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="cerrarModal(true)" >
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-6 mt-3">
                     <div class="d-grid gap-2">
-                    <button class="btn-block btn btn-danger btn/sm">Cancelar</button>
+                    <button class="btn-block btn btn-danger btn/sm" (click)="cerrarModal(true)">Cancelar</button>
                 </div>
             </div>
         </div>

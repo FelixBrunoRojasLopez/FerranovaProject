@@ -34,16 +34,16 @@ public partial class MenuAcceso
     public string? Url { get; set; }
 
     [Column("padre")]
-    public int Padre { get; set; }
+    public int? Padre { get; set; }
 
     [Column("idEstado")]
     public bool IdEstado { get; set; }
 
     [Column("fechaCreacion")]
-    public DateTime FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
     [Column("fechaActualizacion")]
-    public DateTime FechaActualizacion { get; set; }
+    public DateTime? FechaActualizacion { get; set; }
 
     [ForeignKey("IdEstado")]
     [InverseProperty("MenuAccesos")]

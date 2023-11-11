@@ -17,7 +17,7 @@ public partial class Producto
     public int IdDetalleProducto { get; set; }
 
     [Column("stock")]
-    public short? Stock { get; set; }
+    public int? Stock { get; set; }
 
     [Column("precio", TypeName = "money")]
     public decimal? Precio { get; set; }

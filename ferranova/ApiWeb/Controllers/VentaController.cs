@@ -97,5 +97,43 @@ namespace ApiWeb.Controllers
             return Ok(_VentumBusiness.Delete(id));
         }
         #endregion CRUD METHODS
+        #region Logica
+        [HttpPost]
+        [Route("Registrar")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VentumResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
+        public IActionResult Registrar([FromBody] VentumRequest request)
+        {
+            return Ok(_VentumBusiness.Registrar(request));
+        }
+        [HttpGet]
+        [Route("Historial")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VentumResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
+        public IActionResult Historial(string buscarPor, string?numeroVenta, string? fechaInicio, string? fechaFin)
+        {
+            numeroVenta = numeroVenta is null ? "" : numeroVenta;
+            fechaInicio = fechaInicio is null ? "" : fechaInicio;
+            fechaFin = fechaFin is null ? "" : fechaFin;
+
+
+            return Ok(_VentumBusiness.Historial(buscarPor, numeroVenta,fechaInicio,fechaFin));
+        }
+        [HttpGet]
+        [Route("Reporte")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VentumResponse))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
+        public IActionResult Reportes(string? fechaInicio, string? fechaFin)
+        {
+            fechaInicio = fechaInicio is null ? "" : fechaInicio;
+            fechaFin = fechaFin is null ? "" : fechaFin;
+
+
+            return Ok(_VentumBusiness.Reportes(fechaInicio, fechaFin));
+        }
+        #endregion Logica
     }
 }

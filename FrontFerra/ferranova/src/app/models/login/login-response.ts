@@ -4,8 +4,6 @@ import { PersonaResponse } from "@models/persona-response.model";
 import { RolResponse } from "@models/rol-response.model";
 import { UsuarioLoginResponse } from "@models/usuario-login-response.model";
 
-type NewType = CargoResponse;
-
 export class LoginResponse
 {
      Success        : boolean = false;

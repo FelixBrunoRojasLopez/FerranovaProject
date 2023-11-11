@@ -8,6 +8,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AuthInterceptor } from '@services/auth.interceptor';
+import { DashBoardComponent } from './modules/mantenimiento/component/dash-board/dash-board.component';
+import { SharedModule } from '@modules/shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -15,13 +18,16 @@ import { AuthInterceptor } from '@services/auth.interceptor';
     AppComponent,
     WelcomeComponent,
     NotfoundComponent,
+    //DashBoardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //TODO: Para Usar Double Binding / Uso de Formularios
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

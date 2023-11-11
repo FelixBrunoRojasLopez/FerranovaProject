@@ -23,7 +23,10 @@ const routes: Routes = [
     canActivate:[authGuard],
     loadChildren:()=>import('@modules/template/template.module').then(x => x.TemplateModule)
   },
-  
+  {
+    path: 'pages', loadChildren:()=> import("@modules/template/template.module").
+    then(x => x.TemplateModule)
+  },
   
   // {
   //   path: '**', redirectTo : '404'
@@ -31,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash: true})],
+  imports: [RouterModule.forRoot(routes,{useHash: true}),],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

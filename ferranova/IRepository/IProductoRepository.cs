@@ -1,4 +1,5 @@
 ﻿using BDFerranova;
+using RequestResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace IRepository
 {
     public interface IProductoRepository : ICRUDRepository<Producto>
     {
+        IQueryable<ProductoResponse> Consultar();
         List<Producto> InsertMultiple(List<Producto> productos);
     }
 }

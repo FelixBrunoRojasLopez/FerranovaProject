@@ -17,7 +17,7 @@ namespace RequestResponseModel
         public int? Stock { get; set; }
         public decimal? Precio { get; set; }
         public byte[]? Imagen { get; set; } = null;
-        public bool? IdEstado { get; set; }
+        public int? IdEstado { get; set; }
         public DateTime? FechaRegistro { get; set; }
     }
 }

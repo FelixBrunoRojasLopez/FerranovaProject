@@ -20,10 +20,10 @@ public partial class MenuRol
     public bool IdEstado { get; set; }
 
     [Column("fechaCreacion")]
-    public DateTime FechaCreacion { get; set; }
+    public DateTime? FechaCreacion { get; set; }
 
     [Column("fechaActualizacion")]
-    public DateTime FechaActualizacion { get; set; }
+    public DateTime? FechaActualizacion { get; set; }
 
     [Column("idMenu")]
     public int IdMenu { get; set; }

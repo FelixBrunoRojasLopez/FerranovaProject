@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators } from '@angular/forms';
 import { AccionMantConst } from '@constants/general.constants';
-import { convertToBoolean } from '@functions/general.functions';
+import { alert_error, alert_success, convertToBoolean } from '@functions/general.functions';
 
 import { CargoResponse } from '@models/cargo-response.model';
 import { CargoRequest } from '@modules/auth/models/cargo-request.model';
@@ -68,10 +68,10 @@ export class MantCargoRegisterComponent implements OnInit{
   crearRegistro(){
     this._cargoService.create(this.cargoEnvio).subscribe({
       next:(data: CargoResponse)=>{
-        alert("Creado existosamente");
+        alert_success("Creado existosamente","CREADO");
       },
       error:()=>{
-        alert("Ocurrio un error");
+        alert_error("Ocurrio un error","ERROR");
       },
       complete:()=>{
         this.cerrarModal(true);
@@ -81,10 +81,10 @@ export class MantCargoRegisterComponent implements OnInit{
   editarRegistro(){
     this._cargoService.update(this.cargoEnvio).subscribe({
       next:(data:CargoResponse)=>{
-        alert("actualizado de forma correcta");
+        alert_success("actualizado de forma correcta","ACTULIZADO");
       },
       error:()=>{
-        alert("Ocurrio un erro");
+        alert_error("Ocurrio un error","ERROR");
       },
       complete:()=>{
         this.cerrarModal(true);

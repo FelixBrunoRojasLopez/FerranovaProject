@@ -12,7 +12,7 @@ namespace RequestResponseModel
         public int IdProducto { get; set; }
         public string? Nombre { get; set; }
         public int IdDetalleProducto { get; set; }
-        //public string? DescripcionDetalleProducto { get; set; }
+        public string? DescripcionDetalleProducto { get; set; }
         public int? Stock { get; set; }
         public decimal? Precio { get; set; }
         public byte[]? Imagen { get; set; } = null;

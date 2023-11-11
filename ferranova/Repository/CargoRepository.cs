@@ -1,5 +1,6 @@
 ﻿using BDFerranova;
 using IRepository;
+using RequestResponseModel;
 
 namespace Repository
     /*
@@ -8,7 +9,10 @@ namespace Repository
 {
     public class CargoRepository : CRUDRepository<Cargo>, ICargoRepository
     {
-        
+        public GenericFilterResponse<Cargo> GetByFilter(GenericFilterRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
         public Cargo GetById(int id)
         {

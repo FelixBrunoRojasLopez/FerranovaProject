@@ -23,20 +23,22 @@ public partial class Ventum
     [Precision(6)]
     public DateTime? FechaVenta { get; set; }
 
-    [Column("igv", TypeName = "decimal(3, 2)")]
-    public decimal? Igv { get; set; }
-
-    [Column("subtotal", TypeName = "money")]
-    public decimal? Subtotal { get; set; }
-
-    [Column("costoVenta", TypeName = "money")]
-    public decimal? CostoVenta { get; set; }
-
     [Column("idTipoComprobante")]
     public int IdTipoComprobante { get; set; }
 
     [Column("idMetodopago")]
     public int IdMetodopago { get; set; }
+
+    [Column("numeroDocumento")]
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? NumeroDocumento { get; set; }
+
+    [Column("total", TypeName = "decimal(10, 2)")]
+    public decimal? Total { get; set; }
+
+    [Column("fechaRegistro", TypeName = "datetime")]
+    public DateTime? FechaRegistro { get; set; }
 
     [InverseProperty("IdVentaNavigation")]
     public virtual ICollection<DetalleVentum> DetalleVenta { get; set; } = new List<DetalleVentum>();

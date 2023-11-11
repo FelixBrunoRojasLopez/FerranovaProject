@@ -69,7 +69,11 @@ public partial class _dbFerranovaContext : DbContext
 
     public virtual DbSet<Vpersona> Vpersonas { get; set; }
 
+    public virtual DbSet<Vproducto> Vproductos { get; set; }
+
     public virtual DbSet<Vusuario> Vusuarios { get; set; }
+
+    public virtual DbSet<Vventa> Vventas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
@@ -326,6 +330,8 @@ public partial class _dbFerranovaContext : DbContext
         {
             entity.HasKey(e => e.IdVenta).HasName("XPKventa");
 
+            entity.Property(e => e.FechaRegistro).HasDefaultValueSql("(getdate())");
+
             entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Venta)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("R_26");
@@ -348,9 +354,19 @@ public partial class _dbFerranovaContext : DbContext
             entity.ToView("VPersona");
         });
 
+        modelBuilder.Entity<Vproducto>(entity =>
+        {
+            entity.ToView("VProducto");
+        });
+
         modelBuilder.Entity<Vusuario>(entity =>
         {
             entity.ToView("VUsuario");
+        });
+
+        modelBuilder.Entity<Vventa>(entity =>
+        {
+            entity.ToView("VVentas");
         });
 
         OnModelCreatingPartial(modelBuilder);

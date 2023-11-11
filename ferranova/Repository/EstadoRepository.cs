@@ -1,5 +1,6 @@
 ﻿using BDFerranova;
 using IRepository;
+using RequestResponseModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace Repository
 {
     public class EstadoRepository : CRUDRepository<Estado>, IEstadoRepository
     {
+        public GenericFilterResponse<Estado> GetByFilter(GenericFilterRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Estado> InsertMultiple(List<Estado> estados)
         {
             throw new NotImplementedException();

@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { CrudService } from './services/crud.service';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 @NgModule({
@@ -14,13 +13,17 @@ import { CrudService } from './services/crud.service';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
-    HttpClientModule,
-  ],
+    HttpClientModule, // ==> sin este no podemos consumir ningun servio web
+    PaginationModule.forRoot()
+  ], 
   exports:[
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    PaginationModule
+
   ]
 })
 export class SharedModule { }
+

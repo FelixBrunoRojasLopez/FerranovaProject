@@ -15,7 +15,7 @@ export function alert_success(title: string, text: string) {
         icon: 'success',
         title: title,
         text: text,
-        position: 'top-end',
+        position: 'center',
         showConfirmButton: false,
         //   timer: timer == null || timer == undefined ? 1500 : timer
     });

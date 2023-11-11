@@ -10,14 +10,12 @@ import { GenericFilterRequest } from '@modules/auth/models/generic-filter-reques
 @Injectable({
   providedIn: 'root'
 })
-export class CargoService extends CrudService<CargoRequest,CargoResponse>{
-  genericFilter(request: GenericFilterRequest) {
-    throw new Error('Method not implemented.');
-  }
+export class CargoService extends CrudService<CargoRequest, CargoResponse> {
+
   constructor(
     protected http: HttpClient,
-  ) { 
-    super(http, urlConstants.cargo)
+  ) {
+    super(http, urlConstants.cargo);
   }
 
   // constructor(
