@@ -5,8 +5,9 @@ export class PersonaRequest {
     direccion       : string = "";
     telefono        : string = "";
     correo          : string = "";
-    idTipoDocumento : number = 0;
     nroDocumento    : string = "";
-    nombreCompleto  : string = "";
-    //fechaNacimiento : string = "";
+    idTipoDocumento : number = 0;
+    nombreCompleto  : null |string = "";
+    fechaNacimiento : null |string = "";
+    descripcionDocumento : string ="";
 }

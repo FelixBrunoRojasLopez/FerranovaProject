@@ -13,6 +13,6 @@ export class PersonaService extends CrudService<PersonaRequest, PersonaResponse>
   constructor(
     protected http: HttpClient,
   ) {
-    super(http, urlConstants.cargo);
+    super(http, urlConstants.persona);
   }
 }

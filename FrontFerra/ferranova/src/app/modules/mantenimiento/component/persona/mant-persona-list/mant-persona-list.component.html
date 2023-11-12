@@ -1,7 +1,7 @@
 <div class="container-fluid px-4 mt-5">
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
-            <h1 class="mt-4">MANTENIMIENTO DE PERSONA</h1>
+            <h1 class="mt-4">MANTENIMIENTO DE PERSONAs</h1>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">
@@ -30,6 +30,9 @@
                         <td> {{personas.telefono}} </td>
                         <td> {{personas.correo}} </td>
                         <td> {{personas.nroDocumento}} </td>
+                        <td> {{personas.idTipoDocumento}} </td>
+                        <td> {{personas.descripcionDocumento}} </td>
+
                         <td>
                             <button (click)="editarPersona(modalEdit, personas)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
@@ -37,9 +40,9 @@
                             <button (click)="eliminarRegistro(personas.idPersona)" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i>
                             </button>
-                            <button (click)="eliminarRegistro(personas.idPersona)" class="btn btn-warning btn-sm">
+                            <!-- <button (click)="eliminarRegistro(personas.idPersonas)" class="btn btn-warning btn-sm">
                                 <i class="fas fa-search"></i>
-                            </button>
+                            </button> -->
                         </td> 
                     </tr>
                 </tbody>

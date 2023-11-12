@@ -38,7 +38,7 @@ export class ProductoListComponent implements OnInit {
     idProducto            :["",[]],
     nombre                :["",[]],
     idDetalleProducto     :["",[]],
-    descripcionProducto   :["",[]],
+    //descripcionProducto   :["",[]],
     stock                 :["",[]],
     precio                :["",[]],
     idEstado              :['',[]],

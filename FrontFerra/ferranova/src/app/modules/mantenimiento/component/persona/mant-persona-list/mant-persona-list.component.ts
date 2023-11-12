@@ -14,7 +14,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class MantPersonaListComponent implements OnInit {
   modalRef?       : BsModalRef;
-  persona        : PersonaResponse[] = [];
+  persona         : PersonaResponse[] = [];
   personaSelected : PersonaResponse = new PersonaResponse();
   titleModal      : string = "";
   accionModal     : number = 0;
@@ -34,17 +34,16 @@ export class MantPersonaListComponent implements OnInit {
     private _personaService :PersonaService ,
   ){
     this.myFormFilter = this.fb.group({
-      idPersona       : ["", []],
-      nombre          : ["", []],
-      apellido        : ["", []],
-      direccion       : ["", []],
-      telefono        : ["", []],
-      correo          : ["", []],
-      idTipoDocumento : ["", []],
-      nroDocumento    : ["", []],
+      idPersona            : ['',[]],
+      nombre               : ['',[]],
+      apellido             : ['',[]],
+      direccion            : ['',[]],
+      telefono             : ['',[]],
+      correo               : ['',[]],
+      nroDocumento         : ['',[]],
+      idTipoDocumento      : ['',[]],
+      descripcionDocumento : ['',[]],
           
-
-
     });
 
   }

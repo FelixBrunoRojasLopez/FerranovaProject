@@ -32,15 +32,15 @@ export class MantPersonaRegisterComponent implements OnInit{
   )
   {
     this.myForm = this.fb.group({
-    idPersona       : [[Validators.required]],
-    nombre          : [[Validators.required]],
-    apellido        : [[Validators.required]],
-    direccion       : [[Validators.required]],
-    telefono        : [[Validators.required]],
-    correo          : [[Validators.required]],
-    idTipoDocumento : [[Validators.required]],
-    nroDocumento    : [[Validators.required]],
-    nombreCompleto  : [[Validators.required]],
+    idPersona       : [{value : 0, disabled: true },[Validators.required]],
+    nombre          : ['',[Validators.required]],
+    apellido        : ['',[Validators.required]],
+    direccion       : ['',[Validators.required]],
+    telefono        : ['',[Validators.required]],
+    correo          : ['',[Validators.required]],
+    nroDocumento    : ['',[Validators.required]],
+    idTipoDocumento : [{},[Validators.required]],
+    //nombreCompleto  : [[Validators.required]],
 
     });
   }
