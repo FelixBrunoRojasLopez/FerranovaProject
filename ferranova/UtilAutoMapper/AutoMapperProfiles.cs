@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BDFerranova;
 using RequestResponseModel;
+using RequestResponseModel.Request.Productos;
+using RequestResponseModel.Response.Productos;
 
 namespace UtilAutoMapper
 {
@@ -47,6 +49,10 @@ namespace UtilAutoMapper
             CreateMap<Producto, ProductoRequest>().ReverseMap();
             CreateMap<Producto, ProductoResponse>().ReverseMap();
             CreateMap<ProductoRequest, ProductoResponse>().ReverseMap();
+
+            CreateMap<VProductoRequest, ProductoRequest>().ReverseMap();
+            CreateMap<VProductoRequest, ListProductoResponse>().ReverseMap();
+            CreateMap<Vproducto, ListProductoResponse>().ReverseMap();
             #endregion Producto
             #region Rol
             CreateMap<Rol, RolRequest>().ReverseMap();
@@ -128,7 +134,7 @@ namespace UtilAutoMapper
                 opt => opt.MapFrom(origen => origen.IdProductoNavigation.Precio.Value)).
                 ForMember(destino =>
                 destino.Total,
-                opt => opt.MapFrom(origen => origen.Total.Value));  
+                opt => opt.MapFrom(origen => origen.Total.Value));
             #endregion Reporte
         }
     }

@@ -16,8 +16,8 @@ namespace RequestResponseModel
         public int? Cantidad { get; set; }
         public decimal? Precio { get; set; }
         public decimal? Total { get; set; }
-        public virtual Producto? idProductoNavigation { get; set; }
-        public virtual Ventum? IdVentaNavigation { get; set; }
+        //public virtual Producto? idProductoNavigation { get; set; }
+        //public virtual Ventum? IdVentaNavigation { get; set; }
         //public virtual ICollection<Ventum> Venta { get; set; } = new List<Ventum>();
         //public int IdVenta { get; set; }
         //public decimal? Descuento { get; set; }

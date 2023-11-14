@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
 using Business;
+using Business.TB_Producto;
 using IBusiness;
+using IBusiness.TB_Producto;
 using Microsoft.AspNetCore.Mvc;
 using RequestResponseModel;
+using RequestResponseModel.Request.Productos;
+using RequestResponseModel.Response.Productos;
 using System.Net;
 
 namespace ApiWeb.Controllers
@@ -16,7 +20,7 @@ namespace ApiWeb.Controllers
     public class ProductoController : Controller
     {
         #region DECLARACION DE VARIABLE Y CONSTRUCTOR
-        private readonly IProductoBusiness _ProductoBusiness;
+        private readonly IVProductoBusiness _ProductoBusiness;
         private readonly IMapper _mapper;
         /// <summary>
         /// CONSTRUCTOR
@@ -25,7 +29,7 @@ namespace ApiWeb.Controllers
         public ProductoController(IMapper mapper)
         {
             _mapper = mapper;
-            _ProductoBusiness = new ProductoBusiness(mapper);
+            _ProductoBusiness = new VProductoBusiness(mapper);
         }
         #endregion DECLARACION DE VARIABLE Y CONSTRUCTOR
         #region CRUD METHODS
@@ -34,7 +38,7 @@ namespace ApiWeb.Controllers
         /// </summary>
         /// <returns>List-ProductoResponse</returns>
         [HttpGet]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<ProductoResponse>))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(List<VProductoResponse>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
         public IActionResult Get()
@@ -50,7 +54,7 @@ namespace ApiWeb.Controllers
         /// <param name="id">PRIMARY KEY</param>
         /// <returns>ProductoResponse</returns>
         [HttpGet("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoResponse))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VProductoResponse))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
         public IActionResult Get(int id)
@@ -63,10 +67,10 @@ namespace ApiWeb.Controllers
         /// <param name="request">ProductoRequest</param>
         /// <returns>ProductoResponse</returns>
         [HttpPost]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoResponse))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VProductoResponse))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
-        public IActionResult Create([FromBody] ProductoRequest request)
+        public IActionResult Create([FromBody] VProductoRequest request)
         {
             return Ok(_ProductoBusiness.Create(request));
         }
@@ -76,10 +80,10 @@ namespace ApiWeb.Controllers
         /// <param name="request">ProductoRequest</param>
         /// <returns>ProductoResponse</returns>
         [HttpPut]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoResponse))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(VProductoResponse))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(GenericResponse))]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError, Type = typeof(GenericResponse))]
-        public IActionResult Update([FromBody] ProductoRequest request)
+        public IActionResult Update([FromBody] VProductoRequest request)
         {
             return Ok(_ProductoBusiness.Update(request));
         }

@@ -14,7 +14,8 @@ public partial class Producto
     public int IdProducto { get; set; }
 
     [Column("idDetalleProducto")]
-    public int IdDetalleProducto { get; set; }
+    public int IdDetalleProducto { get; set; } // Id, Detalle, otros datos donde utiliza es front lista visualis ens el nom interna esta ordena por id
+    // valaor que manda es Id
 
     [Column("stock")]
     public int? Stock { get; set; }
@@ -33,7 +34,7 @@ public partial class Producto
     public DateTime? FechaRegistro { get; set; }
 
     [Column("idEstado")]
-    public bool? IdEstado { get; set; }
+    public bool? IdEstado { get; set; } // id, nombre, otros datos 
 
     [InverseProperty("IdProductoNavigation")]
     public virtual ICollection<DetallePedido> DetallePedidos { get; set; } = new List<DetallePedido>();
