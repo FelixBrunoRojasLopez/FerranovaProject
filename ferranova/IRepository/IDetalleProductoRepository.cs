@@ -1,4 +1,5 @@
 ﻿using BDFerranova;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace IRepository
     public interface IDetalleProductoRepository : ICRUDRepository<DetalleProducto>
     {
         List<DetalleProducto> InsertMultiple(List<DetalleProducto> detalleProductos);
+        DetalleProducto BuscarDetalle(string nameDetalle);
     }
 }

@@ -91,5 +91,12 @@ namespace Business
             return result;
 
         }
+
+        public DetalleProductoResponse BuscarDetalle(string nameDetalle)
+        {
+            DetalleProducto detalle = _DetalleProductoRepository.BuscarDetalle(nameDetalle);
+            DetalleProductoResponse response = _mapper.Map<DetalleProductoResponse>(detalle);
+            return response;
+        }
     }
 }
