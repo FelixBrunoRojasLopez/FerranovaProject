@@ -1,0 +1,18 @@
+create view VCliente as
+SELECT        dbo.clientes.idCliente, dbo.persona.nombre, dbo.persona.apellido, dbo.tipoPersona.descripcion, dbo.persona.nroDocumento, dbo.persona.correo, dbo.persona.telefono
+FROM            dbo.clientes INNER JOIN
+                         dbo.tipoPersona ON dbo.clientes.idTipoPersona = dbo.tipoPersona.idTipoPersona INNER JOIN
+                         dbo.persona ON dbo.clientes.idPersona = dbo.persona.idPersona INNER JOIN
+                         dbo.tipoDocumento ON dbo.persona.idTipoDocumento = dbo.tipoDocumento.idTipoDocumento
+
+
+create view VVenta as
+SELECT        dbo.venta.idVenta AS idV, dbo.venta.numeroDocumento AS NroDoc, dbo.VCliente.nombre, dbo.VCliente.apellido, dbo.VCliente.nroDocumento, dbo.metodoPago.nombreMetodoPago, dbo.venta.total, dbo.venta.fechaVenta
+FROM            dbo.clientes INNER JOIN
+                         dbo.venta ON dbo.clientes.idCliente = dbo.venta.idCliente INNER JOIN
+                         dbo.detalleVenta ON dbo.venta.idVenta = dbo.detalleVenta.idVenta INNER JOIN
+                         dbo.metodoPago ON dbo.venta.idMetodopago = dbo.metodoPago.idMetodopago INNER JOIN
+                         dbo.tipoComprobante ON dbo.venta.idTipoComprobante = dbo.tipoComprobante.idTipoComprobante INNER JOIN
+                         dbo.producto ON dbo.detalleVenta.idProducto = dbo.producto.idProducto INNER JOIN
+                         dbo.detalleProducto ON dbo.producto.idDetalleProducto = dbo.detalleProducto.idDetalleProducto INNER JOIN
+                         dbo.VCliente ON dbo.clientes.idCliente = dbo.VCliente.idCliente
