@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BDFerranova;
 using RequestResponseModel;
+using RequestResponseModel.Request.Cliente;
 using RequestResponseModel.Request.Productos;
+using RequestResponseModel.Response.Cliente;
 using RequestResponseModel.Response.Productos;
 
 namespace UtilAutoMapper
@@ -29,6 +31,10 @@ namespace UtilAutoMapper
             CreateMap<Cliente, ClienteRequest>().ReverseMap();
             CreateMap<Cliente, ClienteResponse>().ReverseMap();
             CreateMap<ClienteRequest, ClienteResponse>().ReverseMap();
+
+            CreateMap<VclienteRequest, ClienteRequest>().ReverseMap();
+            CreateMap<VclienteRequest, ListClienteResponse>().ReverseMap();
+            CreateMap<Vcliente, ListClienteResponse>().ReverseMap();
             #endregion Cliente
             #region Empleado
             CreateMap<Empleado, EmpleadoRequest>().ReverseMap();

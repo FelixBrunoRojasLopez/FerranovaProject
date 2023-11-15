@@ -1,1 +1,65 @@
-<p>venta-list works!</p>
+<div class="">
+    <section class="content-header">
+      <h1>
+        Lista de ventas
+      </h1>
+      <ol class="breadcrumb">
+        <li><a [routerLink]="['/']">Inicio</a></li>
+        <li class="active"> - Ventas</li>
+      </ol>
+    </section>
+    <section class="content">
+      <button (click)="crearVenta(modalEdit)" class="btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i>
+    </button>
+      <br />
+      <div class="row">
+        <div class="col">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Cliente</th>
+                <th>Vendedor</th>
+                <th>Metodo-pago</th>
+                <th>Total</th>
+                <th>Acciones
+                  
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sale of venta; let j = index">
+                <td>{{ j + 1 }}</td>
+                <td>{{ sale.idVenta }}</td>
+                <td>{{ sale.numeroDocumento }}</td>
+                <td>{{ sale.idMetodoPago }}</td>
+                <td>{{ sale.tipoPago }}</td>
+                <td>{{ sale.fechaRegistro }}</td>
+                <td>{{ sale.total }}</td>
+                <td>
+                  <button (click)="editarRol(modalEdit, sale)" class="btn btn-primary btn-sm">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button (click)="eliminarRegistro(sale.idVenta)" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  <ng-template #modalEdit>
+    <app-venta-register
+     [title]="titleModal"
+     [venta]="ventaSelected"
+     [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
+     ></app-venta-register>
+   
+   </ng-template>

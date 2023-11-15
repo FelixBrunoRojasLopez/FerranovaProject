@@ -91,5 +91,12 @@ namespace Business
             return result;
 
         }
+
+        public TipoDocumentoResponse BuscarDetalle(string? descripcion)
+        {
+            TipoDocumento TDoc = _TipoDocumentoRepository.BuscarDetalle(descripcion);
+            TipoDocumentoResponse response = _mapper.Map<TipoDocumentoResponse>(TDoc);
+            return response;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace RequestResponseModel
         public decimal? Total { get; set; }
         //public int IdVenta { get; set; }
         //public decimal? Descuento { get; set; }
-        public virtual Producto? idProductoNavigation { get; set; }
-        public virtual Ventum? IdVentaNavigation{ get; set; }
+        //public virtual Producto? idProductoNavigation { get; set; }
+        //public virtual Ventum? IdVentaNavigation{ get; set; }
     }
 }

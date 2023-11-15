@@ -47,6 +47,10 @@ public partial class Persona
     [Column("nombreCompleto")]
     public string? NombreCompleto { get; set; }
 
+    [Column("apellidoMaterno")]
+    [StringLength(50)]
+    public string? ApellidoMaterno { get; set; }
+
     [InverseProperty("IdPersonaNavigation")]
     public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
 

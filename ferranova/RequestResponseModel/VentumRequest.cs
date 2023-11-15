@@ -17,7 +17,7 @@ namespace RequestResponseModel
         public string? NumeroDocumento { get; set; }
         public decimal? Total { get; set; }
         public DateTime? FechaRegistro { get; set; }
-        public virtual ICollection<DetalleVentum> DetalleVenta { get; set; } = new List<DetalleVentum>();
+       // public virtual ICollection<DetalleVentum> DetalleVenta { get; set; } = new List<DetalleVentum>();
 
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace IBusiness
 {
-    public interface ITipoDocumentoBusiness:ICRUDBusiness<TipoDocumentoRequest,TipoDocumentoResponse>
+    public interface ITipoDocumentoBusiness : ICRUDBusiness<TipoDocumentoRequest, TipoDocumentoResponse>
     {
-
+        TipoDocumentoResponse BuscarDetalle(string? descripcion);
     }
 }

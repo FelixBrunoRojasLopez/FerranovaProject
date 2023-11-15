@@ -73,11 +73,11 @@ public partial class _dbFerranovaContext : DbContext
 
     public virtual DbSet<Vusuario> Vusuarios { get; set; }
 
-    public virtual DbSet<Vventa> Vventas { get; set; }
+    public virtual DbSet<Vventum> Vventa { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=ferranovabd; Integrated Security=True; Trusted_Connection=true; Trust Server Certificate=true;");
+        => optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS; Initial Catalog=ferranovabd; Integrated Security=True; Trusted_Connection=true; Trust Server Certificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -364,9 +364,9 @@ public partial class _dbFerranovaContext : DbContext
             entity.ToView("VUsuario");
         });
 
-        modelBuilder.Entity<Vventa>(entity =>
+        modelBuilder.Entity<Vventum>(entity =>
         {
-            entity.ToView("VVentas");
+            entity.ToView("VVenta");
         });
 
         OnModelCreatingPartial(modelBuilder);

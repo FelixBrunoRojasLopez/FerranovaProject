@@ -9,6 +9,7 @@ namespace IRepository
 {
     public interface ITipoDocumentoRepository : ICRUDRepository<TipoDocumento>
     {
+        TipoDocumento BuscarDetalle(string? descripcion);
         List<TipoDocumento> InsertMultiple(List<TipoDocumento> tipoDocumentos);
     }
 }

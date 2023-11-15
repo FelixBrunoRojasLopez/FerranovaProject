@@ -20,6 +20,8 @@ import { ProductoRegisterComponent } from './component/producto/producto-registe
 import { ProductoListComponent } from './component/producto/producto-list/producto-list.component';
 import { ReporteListComponent } from './component/reporte/reporte-list/reporte-list.component';
 import { VentaListComponent } from './component/venta/venta-list/venta-list.component';
+import { ClienteListComponent } from './component/cliente/cliente-list/cliente-list.component';
+import { ClienteRegisterComponent } from './component/cliente/cliente-register/cliente-register.component';
 
 
 
@@ -41,12 +43,16 @@ import { VentaListComponent } from './component/venta/venta-list/venta-list.comp
     ProductoListComponent,
     ReporteListComponent,
     VentaListComponent,
+    ClienteListComponent,
+    ClienteRegisterComponent,
+    
 
   ],
   imports: [
     CommonModule,
     MantenimientoRoutingModule,
     SharedModule,
-  ]
+  ],
+ 
 })
 export class MantenimientoModule { }

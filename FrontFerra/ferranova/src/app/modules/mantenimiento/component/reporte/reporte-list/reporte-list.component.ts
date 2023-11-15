@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reporte-list',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./reporte-list.component.scss']
 })
 export class ReporteListComponent {
-
 }

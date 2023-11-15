@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left"> {{title}} </h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="cerrarModal(true)" >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+    <form [formGroup]="myForm1">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">IdCliente</label>
+                    <input formControlName="IdCliente" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input formControlName="Nombre" type="text" class="form-control" placeholder="Ingrese el Nombre">
+                </div>
+                <div *ngIf="myForm1.get('Nombre')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('Nombre')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Apellido</label>
+                    <input formControlName="Apellido" type="text" class="form-control" placeholder="Ingrese el Apellido">
+                </div>
+                <div *ngIf="myForm1.get('Apellido')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('Apellido')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+            <!-- <div class="col-12">
+                <div class="form-group">
+                    <label for="">Descripcion</label>
+                    <input formControlName="Descripcion" type="text" class="form-control" placeholder="Ingrese el Descripcion">
+                </div>
+                <div *ngIf="myForm1.get('Descripcion')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('Descripcion')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div> -->
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">NroDocumento</label>
+                    <input formControlName="NroDocumento" type="text" class="form-control" placeholder="Ingrese el NroDocumento">
+                </div>
+                <div *ngIf="myForm1.get('NroDocumento')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('NroDocumento')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Correo</label>
+                    <input formControlName="Correo" type="text" class="form-control" placeholder="Ingrese el Correo">
+                </div>
+                <div *ngIf="myForm1.get('Correo')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('Correo')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Telefono</label>
+                    <input formControlName="Telefono" type="text" class="form-control" placeholder="Ingrese el Telefono">
+                </div>
+                <div *ngIf="myForm1.get('Telefono')?.errors &&  myForm1.touched ">
+                    <small class="text-danger" *ngIf="myForm1.get('Telefono')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+                <div class="col-6 mt-3">
+                    <div class="d-grid gap-2">
+                        <button [disabled]="myForm1.invalid" (click)="guardar()" class="btn-block btn btn-primary btn/sm">Guardar</button>
+                    </div>
+                </div>
+                <div class="col-6 mt-3">
+                    <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn/sm"(click)="cerrarModal(true)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>

@@ -1,1 +1,61 @@
-<p>venta-register works!</p>
+<div class="modal-header">
+    <h4 class="modal-title pull-left"> {{title}} </h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="cerrarModal(true)" >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+    <form [formGroup]="myForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">ID</label>
+                    <input formControlName="idRol" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">numeroDocumento</label>
+                    <input formControlName="numeroDocumento" type="text" class="form-control" placeholder="Ingrese el Codigo">
+                </div>
+                <div *ngIf="myForm.get('numeroDocumento')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('numeroDocumento')?.hasError('required')">Campo Requerido</small>
+                  
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Tipo Pago</label>
+                    <input formControlName="tipoPago" type="text" class="form-control" placeholder="Ingrese el nombre del rol">
+                </div>
+                <div *ngIf="myForm.get('tipoPago')?.errors && myForm.touched">
+                    <small class="text-danger" *ngIf="myForm.get('tipoPago')?.hasError('required')">Campo Requerido</small>
+                    
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="">Total</label>
+                    <input formControlName="total" type="text" class="form-control" placeholder="Ingrese el nombre del rol">
+                </div>
+                <div *ngIf="myForm.get('total')?.errors && myForm.touched">
+                    <small class="text-danger" *ngIf="myForm.get('total')?.hasError('required')">Campo Requerido</small>
+                    
+                </div>
+            </div>
+            
+                <div class="col-6 mt-3">
+                    <div class="d-grid gap-2">
+                        <button [disabled]="myForm.invalid" (click)="guardar()" class="btn-block btn btn-primary btn/sm">Guardar</button>
+                    </div>
+                </div>
+                <div class="col-6 mt-3">
+                    <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn/sm"(click)="cerrarModal(true)">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>

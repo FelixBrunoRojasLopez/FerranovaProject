@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccionMantConst } from '@constants/general.constants';
-import { ProductoResponse } from '@models/producto-response.model';
+import { VProductoResponse } from '@models/vproducto-response.model';
 
 import { GenericFilterRequest } from '@modules/auth/models/generic-filter-request.model';
 import { ProductoService } from '@modules/mantenimiento/service/producto.service';
@@ -15,8 +15,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class ProductoListComponent implements OnInit {
   modalRef?          : BsModalRef;
-  producto           : ProductoResponse[] = [];
-  productoSelected   : ProductoResponse = new ProductoResponse();
+  producto           : VProductoResponse[] = [];
+  productoSelected   : VProductoResponse = new VProductoResponse();
   titleModal         : string = "";
   accionModal        : number = 0;
   myFormFilter       : FormGroup;
@@ -35,14 +35,14 @@ export class ProductoListComponent implements OnInit {
     private _productoService: ProductoService,
   ){
     this.myFormFilter = this.fb.group({
-    idProducto            :["",[]],
-    nombre                :["",[]],
-    idDetalleProducto     :["",[]],
-    //descripcionProducto   :["",[]],
-    stock                 :["",[]],
-    precio                :["",[]],
-    idEstado              :['',[]],
-    });
+    IdProducto  :['',[]],
+    Nombre      :['',[]],
+    Descripcion :['',[]],
+    Stock       :['',[]],
+    Precio      :['',[]],
+    IdEstado    :['',[]],
+
+});
 
   }
 
@@ -56,7 +56,7 @@ export class ProductoListComponent implements OnInit {
 }
 listarProducto(){
   this._productoService.getAll().subscribe({
-    next:(data: ProductoResponse[])=>{
+    next:(data: VProductoResponse[])=>{
       this.producto = data;
     },
     error:()=>{},
@@ -66,12 +66,12 @@ listarProducto(){
 
 crearProducto(template: TemplateRef<any>)
 {
-  this.productoSelected = new ProductoResponse();
+  this.productoSelected = new VProductoResponse();
   this.titleModal = "NUEVO Producto";
   this.accionModal = AccionMantConst.crear;
   this.openModal(template);
 }
-editarProducto(template: TemplateRef<any>, Producto:ProductoResponse)
+editarProducto(template: TemplateRef<any>, Producto:VProductoResponse)
 {
   this.productoSelected = Producto;
   this.titleModal = "EDITAR Producto";

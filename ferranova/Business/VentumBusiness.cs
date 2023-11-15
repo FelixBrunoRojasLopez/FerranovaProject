@@ -98,55 +98,55 @@ namespace Business
 
         }
 
-        public VentumResponse Registrar(VentumRequest request)
-        {
-            VentumResponse ventaGenerada = _mapper.Map<VentumResponse>(request);
-            if (ventaGenerada.IdVenta == 0)
-            {
-                throw new Exception("No se Puede Crear");
-            }
-            return _mapper.Map<VentumResponse>(ventaGenerada);
-        }
+        //public VentumResponse Registrar(VentumRequest request)
+        //{
+        //    VentumResponse ventaGenerada = _mapper.Map<VentumResponse>(request);
+        //    if (ventaGenerada.IdVenta == 0)
+        //    {
+        //        throw new Exception("No se Puede Crear");
+        //    }
+        //    return _mapper.Map<VentumResponse>(ventaGenerada);
+        //}
 
-        public List<VentumResponse> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin)
-        {
-            IQueryable <VentumResponse> query = (IQueryable<VentumResponse>)_VentumRepository.Consultar();
-            var ListaResultado = new List<VentumResponse>();
-            if(buscarPor == "fecha")
-            {
-                DateTime fecha_Inicio = Convert.ToDateTime((fechaInicio, "dd/MM/yyyy"));
-                DateTime fecha_Fin = Convert.ToDateTime((fechaFin, "dd/MM/yyyy"));
-                ListaResultado = query.Where(v => v.FechaRegistro.Value.Date >= fecha_Inicio.Date &&
-                v.FechaRegistro.Value.Date<= fecha_Fin.Date).Include(dv => dv.DetalleVenta)
-                .ThenInclude(p => p.IdProductoNavigation).ToList();
-            }
-            else
-            {
-                ListaResultado = query.Where(v => v.NumeroDocumento == numeroVenta).
-                    Include(dv => dv.DetalleVenta).
-                    ThenInclude(p => p.IdProductoNavigation) .ToList();
-            }
+        //public List<VentumResponse> Historial(string buscarPor, string numeroVenta, string fechaInicio, string fechaFin)
+        //{
+        //    IQueryable <VentumResponse> query = (IQueryable<VentumResponse>)_VentumRepository.Consultar();
+        //    var ListaResultado = new List<VentumResponse>();
+        //    if(buscarPor == "fecha")
+        //    {
+        //        DateTime fecha_Inicio = Convert.ToDateTime((fechaInicio, "dd/MM/yyyy"));
+        //        DateTime fecha_Fin = Convert.ToDateTime((fechaFin, "dd/MM/yyyy"));
+        //        ListaResultado = query.Where(v => v.FechaRegistro.Value.Date >= fecha_Inicio.Date &&
+        //        v.FechaRegistro.Value.Date<= fecha_Fin.Date).Include(dv => dv.DetalleVenta)
+        //        .ThenInclude(p => p.IdProductoNavigation).ToList();
+        //    }
+        //    else
+        //    {
+        //        ListaResultado = query.Where(v => v.NumeroDocumento == numeroVenta).
+        //            Include(dv => dv.DetalleVenta).
+        //            ThenInclude(p => p.IdProductoNavigation) .ToList();
+        //    }
 
 
 
-           return _mapper.Map<List<VentumResponse>>(ListaResultado);
-        }
+        //   return _mapper.Map<List<VentumResponse>>(ListaResultado);
+        //}
 
-        public List<ReporteResponse> Reportes(string fechaInicio, string fechaFin)
-        {
-            IQueryable<DetalleVentumResponse> query = _detVentaRepository.Consultar();
-            var ListaResultado = new List<DetalleVentumResponse>();
-                DateTime fecha_Inicio = Convert.ToDateTime((fechaInicio, "dd/MM/yyyy"));
-                DateTime fecha_Fin = Convert.ToDateTime((fechaFin, "dd/MM/yyyy"));
+        //public List<ReporteResponse> Reportes(string fechaInicio, string fechaFin)
+        //{
+        //    IQueryable<DetalleVentumResponse> query = _detVentaRepository.Consultar();
+        //    var ListaResultado = new List<DetalleVentumResponse>();
+        //        DateTime fecha_Inicio = Convert.ToDateTime((fechaInicio, "dd/MM/yyyy"));
+        //        DateTime fecha_Fin = Convert.ToDateTime((fechaFin, "dd/MM/yyyy"));
 
-                ListaResultado = query.Include(p=>p.idProductoNavigation).
-                                       Include(v=>v.IdVentaNavigation).
-                                       Where(dv=>
-                                       dv.IdVentaNavigation.FechaRegistro.Value.Date>=fecha_Inicio.Date &&
-                                       dv.IdVentaNavigation.FechaRegistro.Value.Date>=fecha_Fin.Date
-                                       ).ToList();
+        //        ListaResultado = query.Include(p=>p.idProductoNavigation).
+        //                               Include(v=>v.IdVentaNavigation).
+        //                               Where(dv=>
+        //                               dv.IdVentaNavigation.FechaRegistro.Value.Date>=fecha_Inicio.Date &&
+        //                               dv.IdVentaNavigation.FechaRegistro.Value.Date>=fecha_Fin.Date
+        //                               ).ToList();
 
-            return _mapper.Map<List<ReporteResponse>>(ListaResultado);
-        }
+        //    return _mapper.Map<List<ReporteResponse>>(ListaResultado);
+        //}
     }
 }

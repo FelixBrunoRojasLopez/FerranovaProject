@@ -8,6 +8,7 @@ import { ProductoListComponent } from './component/producto/producto-list/produc
 import { VentaListComponent } from './component/venta/venta-list/venta-list.component';
 import { HistorialVentaListComponent } from './component/historial-venta/historial-venta-list/historial-venta-list.component';
 import { ReporteListComponent } from './component/reporte/reporte-list/reporte-list.component';
+import { ClienteListComponent } from './component/cliente/cliente-list/cliente-list.component';
 
 
 
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',component:DashBoardListComponent
+  },
+  {
+    path: 'cliente',component:ClienteListComponent
   },
 
   {

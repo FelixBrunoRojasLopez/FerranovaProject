@@ -1,0 +1,60 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE CLIENTES</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <!-- <th>Descripcion</th> -->
+                        <th>NroDocumento</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>
+                            <button (click)="crearCliente(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let clientes of cliente">
+                        <td> {{clientes.IdCliente}} </td>
+                        <td> {{clientes.Nombre}} </td>
+                        <td> {{clientes.Apellido}} </td>
+                        <!-- <td> {{clientes.Descripcion}} </td> -->
+                        <td> {{clientes.NroDocumento}} 
+                        <td> {{clientes.Correo}} 
+                        <td> {{clientes.Telefono}} 
+                            <!-- <div class="form-check form-switch" >{{clientes.idEstado?'Activo':'Inactivo'}}
+                               <input type="checkbox" class="form-check-input" clientese="switch" [checked]="clientes.idEstado"> 
+                            </div> -->
+                        </td>
+                        <td>
+                            <button (click)="editarCliente(modalEdit, clientes)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(clientes.IdCliente)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td> 
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+  <ng-template #modalEdit>
+    <app-cliente-register
+    [title]="titleModal"
+    [cliente]="clienteSelected"
+    [accion]="accionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"></app-cliente-register>
+
+  </ng-template>
+  <!--MODAL-->

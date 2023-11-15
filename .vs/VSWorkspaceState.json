@@ -3,8 +3,10 @@
     "",
     "\\ferranova",
     "\\ferranova\\ApiWeb",
-    "\\ferranova\\ApiWeb\\Controllers"
+    "\\ferranova\\ApiWeb\\Controllers",
+    "\\ferranova\\IBusiness",
+    "\\ferranova\\IBusiness\\TB_Producto"
   ],
-  "SelectedNode": "\\ferranova\\ApiWeb\\Controllers\\PersonaController.cs",
+  "SelectedNode": "\\ferranova\\IBusiness\\TB_Producto\\IVProductoBusiness.cs",
   "PreviewInSolutionExplorer": false
 }

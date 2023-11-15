@@ -20,8 +20,9 @@ public partial class Vpersona
     [StringLength(50)]
     public string? Apellido { get; set; }
 
-    [Column("nombreCompleto")]
-    public string? NombreCompleto { get; set; }
+    [Column("apellidoMaterno")]
+    [StringLength(50)]
+    public string? ApellidoMaterno { get; set; }
 
     [Column("direccion")]
     [StringLength(150)]
@@ -35,9 +36,6 @@ public partial class Vpersona
     [StringLength(50)]
     public string? Correo { get; set; }
 
-    [Column("idTipoDocumento")]
-    public int IdTipoDocumento { get; set; }
-
     [Column("descripcion")]
     [StringLength(50)]
     public string? Descripcion { get; set; }
@@ -45,4 +43,10 @@ public partial class Vpersona
     [Column("nroDocumento")]
     [StringLength(20)]
     public string? NroDocumento { get; set; }
+
+    [Column("nombreCompleto")]
+    public string? NombreCompleto { get; set; }
+
+    [Column("idTipoDocumento")]
+    public int IdTipoDocumento { get; set; }
 }

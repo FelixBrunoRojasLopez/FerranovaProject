@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccionMantConst } from '@constants/general.constants';
+import { alert_success } from '@functions/general.functions';
 import { PersonaResponse } from '@models/persona-response.model';
 import { GenericFilterRequest } from '@modules/auth/models/generic-filter-request.model';
 import { PersonaService } from '@modules/mantenimiento/service/persona.service';
@@ -41,8 +42,8 @@ export class MantPersonaListComponent implements OnInit {
       telefono             : ['',[]],
       correo               : ['',[]],
       nroDocumento         : ['',[]],
-      idTipoDocumento      : ['',[]],
-      descripcionDocumento : ['',[]],
+      //idTipoDocumento      : ['',[]],
+      //descripcionDocumento : ['',[]],
           
     });
 
@@ -98,7 +99,7 @@ eliminarRegistro(id : number){
     {
       this._personaService.delete(id).subscribe({
         next:(data:number)=>{
-          alert("Registro eliminado de forma correcta");
+          alert_success("Registro eliminado de forma correcta","ELIMINADO");
         },
         error:()=>{},
         complete:()=>{

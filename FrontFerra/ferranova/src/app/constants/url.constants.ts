@@ -12,6 +12,7 @@ export const urlConstants = {
     detalleVenta  : dominio + "api/DetalleVenta/",
     dashboard     : dominio + "api/Dashboard/",
     menubar       : dominio + "api/Menu",
+    cliente       : dominio + "api/Cliente",
 
 
 }

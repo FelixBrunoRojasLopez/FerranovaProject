@@ -9,7 +9,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <!-- <th>DescripcionProducto</th> -->
+                        <th>Descripcion</th>
                         <th>Stock</th>
                         <th>Precio</th>
                         <th>Estado</th>
@@ -22,21 +22,21 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let productos of producto">
-                        <td> {{productos.idProducto}} </td>
-                        <td> {{productos.nombre}} </td>
-                        <!-- <td> {{productos.descripcionProducto}} </td> -->
-                        <td> {{productos.stock}} </td>
-                        <td> {{productos.precio}} </td>
-                        <td> {{productos.idEstado}} 
-                            <div class="form-check form-switch" >{{productos.idEstado?'Activo':'Inactivo'}}
-                               <input type="checkbox" class="form-check-input" role="switch" [checked]="productos.idEstado"> 
+                        <td> {{productos.IdProducto}} </td>
+                        <td> {{productos.Nombre}} </td>
+                        <td> {{productos.Descripcion}} </td>
+                        <td> {{productos.Stock}} </td>
+                        <td> {{productos.Precio}} </td>
+                        <td> {{productos.IdEstado}} 
+                            <div class="form-check form-switch" >{{productos.IdEstado?'Activo':'Inactivo'}}
+                               <input type="checkbox" class="form-check-input" role="switch" [checked]="productos.IdEstado"> 
                             </div>
                         </td>
                         <td>
                             <button (click)="editarProducto(modalEdit, productos)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <button (click)="eliminarRegistro(productos.idProducto)" class="btn btn-danger btn-sm">
+                            <button (click)="eliminarRegistro(productos.IdProducto)" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td> 

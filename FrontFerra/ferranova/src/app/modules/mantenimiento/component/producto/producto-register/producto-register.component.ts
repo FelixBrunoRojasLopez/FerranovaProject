@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccionMantConst } from '@constants/general.constants';
 import { alert_error, alert_success } from '@functions/general.functions';
-import { ProductoResponse } from '@models/producto-response.model';
-import { ProductoRequest } from '@modules/auth/models/producto-request.model';
+import { VProductoResponse } from '@models/vproducto-response.model';
+import { VProductoRequest } from '@modules/auth/models/vproducto-request.model';
 import { ProductoService } from '@modules/mantenimiento/service/producto.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ProductoRegisterComponent implements OnInit{
   
   /**TODO: Declarando Variables de entrada */
   @Input() title     : string = "";
-  @Input() producto  : ProductoResponse = new ProductoResponse();
+  @Input() producto  : VProductoResponse = new VProductoResponse();
   @Input() accion    : number = 0;
 
 
@@ -24,7 +24,7 @@ export class ProductoRegisterComponent implements OnInit{
 
     /**TODO: Declarando Variables internas */
   myForm          : FormGroup;
-  productoEnvio   : ProductoRequest = new ProductoRequest();
+  productoEnvio   : VProductoRequest = new VProductoRequest();
   constructor(
     private fb: FormBuilder,
     private _productoService: ProductoService,
@@ -32,14 +32,13 @@ export class ProductoRegisterComponent implements OnInit{
   )
   {
     this.myForm = this.fb.group({
-    idProducto            :[{value : 0, disabled: true },[Validators.required]],
-    nombre                :[[Validators.required]],
-    idDetalleProducto     :[[Validators.required]],
-    descripcionProducto   :[[Validators.required]],
-    stock                 :[[Validators.required]],
-    precio                :[[Validators.required]],
-    idEstado              :[[Validators.required]],
-    });
+      IdProducto :[{value : 0, disabled: true },[Validators.required]],
+      Nombre     :['',[Validators.required]],
+      Descripcion:['',[Validators.required]],
+      Stock      :['',[Validators.required]],
+      Precio     :['',[Validators.required]],
+      IdEstado   :['',[Validators.required]],
+});
   }
 
   
@@ -68,7 +67,7 @@ export class ProductoRegisterComponent implements OnInit{
   }
   crearRegistro(){
     this._productoService.create(this.productoEnvio).subscribe({
-      next:(data: ProductoResponse)=>{
+      next:(data: VProductoResponse)=>{
         alert_success("Creado existosamente","CREADO");
       },
       error:()=>{
@@ -81,7 +80,7 @@ export class ProductoRegisterComponent implements OnInit{
   }
   editarRegistro(){
     this._productoService.update(this.productoEnvio).subscribe({
-      next:(data:ProductoResponse)=>{
+      next:(data:VProductoResponse)=>{
         alert_success("actualizado de forma correcta","ACTULIZADO");
       },
       error:()=>{
